@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: 'Madness Hyperactive';
+    src: url('../assets/fonts/Madness\ Hyperactive.otf') format('opentype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../assets/imgs/cuphead-menu-background.png');
+    font-family: "Alegreya Sans SC";
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    --tamanho-header: 80px;
+    --tamanho-footer: 90px;
+    --tamanho-corpo: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+}
+
+
+.header {
+    height: var(--tamanho-header);
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: auto;    
+}
+
+.header .container {
+    justify-content: space-between;
+    background-color: #d0c0aa;
+    align-items: center;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.navbar {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.header a {
+    text-decoration: none;
+
+}
+
+.cadastro {
+    height: var(--tamanho-corpo);
+}
+
+.cadastro .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cadastro .card {
+    width: 500px;
+    height: fit-content;
+    background-color: #d4c6b4;
+    text-align: center;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+
+.container .formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

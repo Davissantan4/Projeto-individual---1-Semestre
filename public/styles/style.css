@@ -1,108 +1,208 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+
 @font-face {
-    font-family: 'Madness Hyperactive';
-    src: url('../assets/fonts/Madness\ Hyperactive.otf') format('opentype');
+    font-family: 'RitaSmith';
+    src: url('../assets/fonts/RitaSmith.otf');
+}
+
+@font-face {
+    font-family: 'CupheadHenriette-A-merged';
+    src: url('../assets/fonts/CupheadHenriette-A-merged.ttf');
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-image: url('../assets/imgs/cuphead-menu-background.png');
+    color: white;
+    background-color: black;
     font-family: "Alegreya Sans SC";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-family: 'CupheadHenriette-A-merged';
+    text-shadow: 2px 0 0 gray;
+}
+
+.menu {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../assets/imgs/background2.png');
     background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 
-:root {
-    --tamanho-header: 80px;
-    --tamanho-footer: 90px;
-    --tamanho-corpo: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+.overlay {
+     position: relative;
+     z-index: 1;
 }
 
-
-.header {
-    height: var(--tamanho-header);
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/imgs/overlay.gif') no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
 }
 
+.overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/imgs/overlay2.gif') no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.container-menu {
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .container {
     display: flex;
     justify-content: center;
-    margin: auto;    
-}
-
-.header .container {
-    justify-content: space-between;
-    background-color: #d0c0aa;
     align-items: center;
     height: 100%;
 }
 
-.titulo {
-    margin: 50px;
-    color: black;
-}
-
-.navbar {
-    width: 300px;
-    font-weight: 900;
-    margin: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-}
-
-.header a {
-    text-decoration: none;
-    color: black;
-}
-
-.agora a {
-    color: #ae3528;
-}
-
-
-.cadastro {
-    height: var(--tamanho-corpo);
-}
-
-.cadastro .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-.cadastro .card {
-    width: 400px;
-    height: 300px;
-    background-color: #d4c6b4;
+.card {
+    width: 650px;
+    height: 470px;
+    background-image: url('../assets/imgs/card1.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card2 {
+    width: 650px;
+    height: 400px;
+
+    background-image: url('../assets/imgs/card2.PNG');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h2 {
+    font-family: 'RitaSmith';
+    font-size: 40px;
+    margin-bottom: 30px;
 }
 
 .campo {
     display: flex;
     flex-direction: column;
     text-align: left;
+    justify-content: space-between;
     font-weight: 700;
     margin: 5px;
 }
 
 
-.container .formulario {
+.cadastro .container .formulario {
+    margin: 0;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-.formulario input {
-    width: 300px;
-    border: none;
+.login .container .formulario {
+    margin: 0;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.formulario button {
-    margin: 10px;
+span {
+    font-family: 'CupheadHenriette-A-merged';
+    font-weight: 400;
+    font-size: 15px;
+    text-shadow: 2px 0 0 gray;
 }
+
+input {
+    border: 2px solid gray;
+    outline: none;
+}
+
+button {
+    margin-top: 15px;
+    width: 100px;
+    height: 30px;
+
+    font-size: 15px;
+    font-family: 'CupheadHenriette-A-merged';
+
+    color: white;
+    background-color: #d28652;
+
+    padding: 5px;
+    border: none;
+    text-shadow: 2px 0 0 gray;
+
+    transition: background-color 0.15s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #c05a3a;
+}
+
+.opcoes {
+    height: 50%;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.opcoes a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.4;
+    text-shadow: 2px 0 0 gray;
+    transition: opacity 0.15s;
+}
+
+.opcoes a:hover {
+    opacity: 1;
+}
+

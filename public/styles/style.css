@@ -26,7 +26,7 @@ h1 {
     text-shadow: 2px 0 0 gray;
 }
 
-.menu {
+.corpo {
     height: 100vh;
     width: 100%;
     background-image: url('../assets/imgs/background2.png');

@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: 'RitaSmith';
+    src: url('../assets/fonts/RitaSmith.otf');
+}
+
+@font-face {
+    font-family: 'CupheadHenriette-A-merged';
+    src: url('../assets/fonts/CupheadHenriette-A-merged.ttf');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Alegreya Sans SC";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Index*/
+.bem-vindo {
+    font-family: 'CupheadHenriette-A-merged';
+    text-shadow: 2px 0 0 gray;
+}
+
+.corpo {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../assets/imgs/background2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.overlay {
+     position: relative;
+     z-index: 1;
+}
+
+.overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/imgs/overlay.gif') no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../assets/imgs/overlay2.gif') no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.container-menu {
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Cadastro e Login*/
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card {
+    width: 650px;
+    height: 470px;
+    background-image: url('../assets/imgs/card1.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card2 {
+    width: 650px;
+    height: 400px;
+
+    background-image: url('../assets/imgs/card2.PNG');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.card-titulo {
+    font-family: 'RitaSmith';
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-between;
+    font-weight: 700;
+    margin: 5px;
+}
+
+
+.cadastro .container .formulario {
+    margin: 0;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login .container .formulario {
+    margin: 0;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.campo span {
+    font-family: 'CupheadHenriette-A-merged';
+    font-weight: 400;
+    font-size: 15px;
+    text-shadow: 2px 0 0 gray;
+}
+
+.campo input {
+    border: 2px solid gray;
+    outline: none;
+}
+
+.botao {
+    margin-top: 15px;
+    width: 100px;
+    height: 30px;
+
+    font-size: 15px;
+    font-family: 'CupheadHenriette-A-merged';
+
+    color: white;
+    background-color: #d28652;
+
+    padding: 5px;
+    border: none;
+    text-shadow: 2px 0 0 gray;
+
+    transition: background-color 0.15s;
+}
+
+.botao:hover {
+    cursor: pointer;
+    background-color: #c05a3a;
+}
+
+/*Opções do Index*/
+.opcoes {
+    height: 50%;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.opcoes a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.4;
+    text-shadow: 2px 0 0 gray;
+    transition: opacity 0.15s;
+}
+
+.opcoes a:hover {
+    opacity: 1;
+}
+
+/*Div da API*/
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none
+}
+
+/* FORMULARIO */
+
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #ED145B 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}

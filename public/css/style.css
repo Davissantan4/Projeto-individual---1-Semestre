@@ -260,6 +260,7 @@ body {
 
 /*Tela inicial pós login*/
 .inicio {
+
     height: 100%;
     width: 100%;
 
@@ -269,8 +270,6 @@ body {
 .header {
     width: 100%;
     height: 80px;
-
-    border: 2px solid black;
 
     display: flex;
     justify-content: center;
@@ -335,21 +334,55 @@ body {
     align-items: center;
     justify-content: right;
 
-    background-color: yellow;
-}
-
-.banner .container {
-    width: 40%;
-
-    text-align: center;
-
-    border: 2px solid black;
+    background-image: url('../assets/imgs/banner-fundo.jpg');
+    background-size: cover;
+    color: white;
 }
 
 .sobre {
-    border: 2px solid blue;
-    text-align: center;
 
-    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    height: 500px;
+    border: 2px solid black;
+
 }
 
+.texto-sobre {
+    width: 40%;
+
+    font-size: 20px;
+    border: 2px solid black;
+}
+
+.ilha {
+    height: 400px;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.ilha::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-image: url('https://i.redd.it/osuf1vt8w0uz.png');
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(2px);
+
+    z-index: -1;
+}

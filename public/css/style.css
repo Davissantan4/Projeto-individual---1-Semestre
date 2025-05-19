@@ -38,8 +38,8 @@ body {
 }
 
 .overlay {
-     position: relative;
-     z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .overlay::before {
@@ -210,52 +210,52 @@ body {
 
 /*Loading Div*/
 .loading-div {
-  width: 50px;
-  display: none;
+    width: 50px;
+    display: none;
 }
 
 .loading-div img {
-  height: 50px;
-  width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
 #div_erros_login {
-  display: none
+    display: none
 }
 
 /*FORMULARIO - API*/
 
-.alerta_erro{
-  display: flex;
-  justify-content: flex-end;
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .card_erro {
-  display: none;
-  background-color: #fff;
-  color: black;
-  width: 230px;
-  position: fixed;
-  border-radius: 4px;
-  border: #ED145B 3px solid;
-  padding: 10px;
-  margin-right: 10%;
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    position: fixed;
+    border-radius: 4px;
+    border: #ED145B 3px solid;
+    padding: 10px;
+    margin-right: 10%;
 }
 
-.card_erro #mensagem_erro{
-  font-weight: 500;
-  font-size: 20px;
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
 }
 
 .loading-div {
-  width: 50px;
-  margin: auto;
-  display: none;
+    width: 50px;
+    margin: auto;
+    display: none;
 }
 
 .loading-div img {
-  height: 50px;
-  width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
 /*Tela inicial pós login*/
@@ -291,6 +291,9 @@ body {
 
 .titulo {
     font-family: 'CupheadHenriette-A-merged';
+
+    color: white;
+    text-shadow: 4px 0 2px black;
 }
 
 .navbar {
@@ -310,13 +313,13 @@ body {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.788);
 }
- 
+
 .agora a {
     color: #ae3528;
 }
 
 .inicio .corpo {
-    height: 900px;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -336,7 +339,6 @@ body {
 
     background-image: url('../assets/imgs/banner-fundo.jpg');
     background-size: cover;
-    color: white;
 }
 
 .sobre {
@@ -344,10 +346,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 
     height: 500px;
-    border: 2px solid black;
 
 }
 
@@ -358,31 +359,69 @@ body {
     border: 2px solid black;
 }
 
-.ilha {
-    height: 400px;
+.sobre2 {
+    height: 500px;
+    width: 100%;
 
-    position: relative;
-    overflow: hidden;
+    font-size: 25px;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    font-size: 40px;
 }
 
-.ilha::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.sobre2 h3 {
+    color: #ae3528;
+}
 
-    background-image: url('https://i.redd.it/osuf1vt8w0uz.png');
+.sobre2 .ilhas h3 {
+    color: black;
+}
+
+.ilhas {
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ilha {
+    height: 100%;
+    width: 30%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid red;
+}
+
+.imagem {
+    height: 200px;
+    width: 200px;
+
+    border-radius: 50%;
+
+}
+
+.ilha1 {
+    background-image: url('../assets/imgs/ilha-1.jpg');
     background-size: cover;
     background-position: center;
+}
 
-    filter: blur(2px);
+.ilha2 {
+    background-image: url('../assets/imgs/ilha-2.webp');
+    background-size: cover;
+    background-position: center;
+}
 
-    z-index: -1;
+.ilha3 {
+    background-image: url('https://static.wikia.nocookie.net/cuphead/images/b/ba/Inkwell_Isle_Three.png/revision/latest/scale-to-width-down/641?cb=20240317075944');
+    background-size: cover;
+
 }

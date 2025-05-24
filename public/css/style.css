@@ -312,6 +312,15 @@ body {
 .header a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.788);
+
+    transition: all 0.15s;
+}
+
+.header a:hover {
+    cursor: pointer;
+
+    color: #ae3528;
+    font-size: 18px;
 }
 
 .agora a {

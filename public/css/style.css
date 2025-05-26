@@ -454,3 +454,52 @@ body {
 
     border: 2px solid rebeccapurple;
 }
+
+/*Tela de Quiz*/
+.inicio .centro {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.centro .selecionar {
+    height: 300px;
+    width: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid gray;
+    border-radius: 20px;
+}
+
+.selecionar .selecionado {
+    height: 100%;
+    width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+
+    transition: all 0.15s;
+}
+
+.selecionado:hover {
+    cursor: pointer;
+    background-color: #c05a3a;
+    color: black;
+
+    width: 250px;
+}
+

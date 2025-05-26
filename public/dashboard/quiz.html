@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupweb | Quiz</title>
+
+    <script src="../js/sessao.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body onload="onloadEsconder()">
+    <div class="inicio overlay">
+        <div class="header">
+            <div class="container">
+                <h1 class="titulo">Cupweb</h1>
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <ul class="navbar">
+                    <li>
+                        <a href="inicio.html">Início</a>
+                    </li>
+                    <li class="agora">
+                        <a href="#">Quiz</a>
+                    </li>
+                    <li>
+                        <a href="">Estatísticas</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a onclick="limparSessao()">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>    
+        <div class="centro">
+            <h2>Selecione o Quiz que deseja fazer: </h2>
+            <div class="selecionar">
+                <div class="selecionado">
+                    <h3>Personagens</h3>
+                </div>
+                <div class="selecionado">
+                    <h3>História</h3>
+                </div>
+                <div class="selecionado">
+                    <h3>Extra</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

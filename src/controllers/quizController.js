@@ -41,16 +41,13 @@ function listarQuestoes(req, res) {
  function responderQuestao(req, res) {
     var idUsuario = req.body.idUsuario;
     var respostas = req.body.respostas;
-    var idTentativa = 1;
 
     if(idUsuario == undefined){
         res.status(400).send("O id do usuário está indefinido!");
     } else if (respostas == undefined){
         res.status(400).send("As respostas estão indefinidas!");
-    } else if (idTentativa == undefined){
-        res.status(400).send("O id da tentativa está indefinido!");
     } else {
-        quizModel.responderQuestao(idTentativa, idUsuario, respostas)
+        quizModel.responderQuestao(idUsuario, respostas)
             .then(
                 function (resultado) {
                     res.json(resultado);

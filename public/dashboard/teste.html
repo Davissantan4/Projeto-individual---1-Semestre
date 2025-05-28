@@ -10,7 +10,7 @@
 </head>
 
 <body onload="validarSessao(), carregarQuizzes()">
-    <select id="quizSelect"></select>
+    <select id="quizSelect"><option value="#">Selecione um Quiz</option></select>
     <div id="quizContainer" onload="carregarQuestoes()"></div>
     <button onclick="enviarRespostas()">Enviar Respostas</button>
 </body>
@@ -35,6 +35,7 @@
         quizSelecionado = id;
         const res = await fetch(`/quizzes/quiz/${id}/questoes`);
         const questoes = await res.json();
+        
 
         const container = document.getElementById('quizContainer');
         container.innerHTML = '';
@@ -58,14 +59,14 @@
             const idQuestao = div.querySelector('input').name.replace('questao', '');
             const alternativa = div.querySelector('input:checked').value;
 
-            respostas.push({ idQuestao: idQuestao, alternativa: alternativa, idResposta: 0 });
+            respostas.push({ idQuestao: idQuestao, alternativa: alternativa, idResposta: 3 });
         });
 
         const res = await fetch(`/quizzes/quiz/${quizSelecionado}/responder`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                idUsuario: 1,
+                idUsuario: sessionStorage.ID_USUARIO,
                 respostas: respostas
             })
         });

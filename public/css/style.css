@@ -275,8 +275,6 @@ body {
     justify-content: center;
     align-items: center;
 
-    position: fixed;
-
     background-color: #e9935b;
 }
 
@@ -297,7 +295,10 @@ body {
 }
 
 .navbar {
-    width: 300px;
+    margin: 0;
+    padding: 0;
+
+    width: 350px;
 
     display: flex;
     justify-content: space-between;
@@ -339,7 +340,7 @@ body {
 }
 
 .banner {
-    height: 400px;
+    height: 500px;
     width: 100%;
 
     display: flex;
@@ -348,6 +349,7 @@ body {
 
     background-image: url('../assets/imgs/banner-fundo.jpg');
     background-size: cover;
+    background-position: center;
 }
 
 .sobre {
@@ -503,3 +505,135 @@ body {
     width: 250px;
 }
 
+/*Página do Fórum*/
+.corpo-forum {
+    height: 55.4em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: auto;
+}
+
+.publicacoes {
+    height: 800px;
+    width: 800px;
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.publicacoes .container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.publicacoes .container input {
+    width: 400px;
+
+    padding: 15px;
+}
+
+.publicacoes .container textarea {
+    width: 600px;
+}
+
+.publicacoes .container .botao {
+    margin: 0;
+    height: 40px;
+
+    border-radius: 10px;
+}
+
+.div-results {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feed-container {
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    flex-wrap: wrap;
+}
+
+.publicacao {
+    width: 700px;
+    height: 400px;
+    
+
+    margin-bottom: 20px;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.publicacao .div-buttons {
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.div-buttons button {
+    width: 90px;
+    height: 100%;
+
+    font-weight: 800;
+    color: white;
+
+    background-color: #c05a3a;
+
+    border: none;
+    border-radius: 20px;
+
+}
+
+.publicacao-titulo {
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-top: 2px solid #c05a3a;
+}
+
+.publicacao-descricao {
+    height: 30%;
+    width: 90%;
+
+    overflow-wrap: break-word;
+
+    border: 2px solid #c05a3a;
+}

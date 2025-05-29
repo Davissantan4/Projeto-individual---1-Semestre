@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupweb | Fórum</title>
+
+    <script src="../js/sessao.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body onload="validarSessao(), listarInfosDeUm()">
+    <div class="inicio overlay">
+        <div class="header">
+            <div class="container">
+                <h1 class="titulo">Cupweb</h1>
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                <ul class="navbar">
+                    <li>
+                        <a href="inicio.html">Início</a>
+                    </li>
+                    <li>
+                        <a href="teste.html">Quiz</a>
+                    </li>
+                    <li class="agora">
+                        <a href="#">Fórum</a>
+                    </li>
+                    <li>
+                        <a href="">Estatísticas</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a onclick="limparSessao()">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="corpo-forum">
+
+            <div class="publicacoes">
+                <div class="container" id="container_edicao">
+                    <h1>Editar um comentário</h1>
+                    <div class="div-form">
+                        <label>
+                            Nova descrição: (máximo de 250 caracteres):
+                            <br>
+                            <textarea id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                        </label>
+                        <br>
+                        <button class="botao" onclick="editar()">Editar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
+
+<script>
+    function listarInfosDeUm() {
+        console.log("Criar função de trazer informações de post escolhido");
+    }
+
+    function editar() {
+        fetch(`/forum/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                descricao: textarea_descricao.value
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Post atualizado com sucesso pelo usuario: " + sessionStorage.getItem("NOME_USUARIO") + "!");
+                window.location = "/dashboard/forum.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+</script>

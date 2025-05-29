@@ -72,7 +72,7 @@ function publicar(titulo, descricao, idUsuario) {
 }
 
 function editar(novaDescricao, idForum) {
-    console.log("ACESSEI O FORUM MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", novaDescricao, idAviso);
+    console.log("ACESSEI O FORUM MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", novaDescricao, idForum);
     var instrucaoSql = `
         UPDATE Forum SET descricao = '${novaDescricao}' WHERE id = ${idForum};
     `;

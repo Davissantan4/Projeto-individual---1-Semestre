@@ -8,6 +8,16 @@ email varchar(100),
 senha varchar(100)
 );
 
+create table Forum(
+id int primary key auto_increment,
+titulo varchar(100),
+descricao varchar(150),
+fkUsuario int,
+foreign key (fkUsuario) references Usuario(id)
+);
+
+select * from Forum;
+
 create table Quiz(
 id int primary key auto_increment,
 descricao varchar(255)
@@ -31,13 +41,13 @@ foreign key(fkQuestao) references Quiz_questao(idQuestao)
 );
 
 create table Usuario_resposta(
-idTentativa int not null,
+data_resposta datetime not null,
 fkUsuario int not null,
 fkResposta int not null,
 acertou boolean,
 foreign key(fkUsuario) references Usuario(id),
 foreign key(fkResposta) references Quiz_resposta(idResposta),
-primary key(idTentativa, fkUsuario, fkResposta)
+primary key(data_resposta, fkUsuario, fkResposta)
 );
 
 insert into Quiz (descricao)
@@ -119,5 +129,5 @@ case when qr.resposta = qq.resposta_correta then 'Respota certa'
                                             else 'Resposta errada'
 											end Resultado from Quiz q
 inner join Quiz_questao qq on q.id = qq.fkQuiz
-inner join Quiz_resposta qr on qr.fkQuestao = qq.idQuestao;                                           
-						
+inner join Quiz_resposta qr on qr.fkQuestao = qq.idQuestao;       
+                                 

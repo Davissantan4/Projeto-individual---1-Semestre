@@ -264,6 +264,8 @@ body {
     height: 100%;
     width: 100%;
 
+    overflow: hidden;
+
     color: black;
 }
 
@@ -618,6 +620,10 @@ body {
 
 }
 
+.publicacao-nome {
+    border-bottom: 2px solid #c05a3a;
+}
+
 .publicacao-titulo {
     width: 100%;
     height: 10%;
@@ -626,12 +632,13 @@ body {
     justify-content: center;
     align-items: center;
 
-    border-top: 2px solid #c05a3a;
 }
 
 .publicacao-descricao {
     height: 30%;
     width: 90%;
+
+    text-align: center;
 
     overflow-wrap: break-word;
 

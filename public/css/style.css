@@ -113,7 +113,7 @@ body {
 
 .sobre-o-site .div-sobre p::first-letter {
     margin-left: 1em;
-} 
+}
 
 /*Cadastro e Login*/
 .container {
@@ -389,6 +389,8 @@ body {
     background-image: url('../assets/imgs/banner-fundo.jpg');
     background-size: cover;
     background-position: center;
+
+    border-bottom: 2px solid black;
 }
 
 .sobre {
@@ -398,8 +400,7 @@ body {
     align-items: center;
 
 
-    height: 500px;
-
+    height: 800px;
 }
 
 .texto-sobre {
@@ -407,6 +408,24 @@ body {
 
     font-size: 20px;
     border: 2px solid black;
+    border-radius: 20px;
+
+    padding: 10px;
+
+
+    background-color: #e9935b;
+}
+
+.texto-sobre p::first-letter {
+    margin-left: 1em;
+}
+
+.texto-sobre span {
+    color: #ae3528;
+}
+
+.texto-sobre h3 {
+    text-align: center;
 }
 
 .sobre2 {
@@ -446,8 +465,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    border: 2px solid red;
 }
 
 .imagem {
@@ -471,7 +488,7 @@ body {
 }
 
 .ilha3 {
-    background-image: url('https://static.wikia.nocookie.net/cuphead/images/b/ba/Inkwell_Isle_Three.png/revision/latest/scale-to-width-down/641?cb=20240317075944');
+    background-image: url('../assets/imgs/ilha-3.webp');
     background-size: cover;
 
 }
@@ -493,7 +510,7 @@ body {
     height: 100%;
     width: 90%;
 
-    border: 2px solid rebeccapurple;
+    border: 2px solid red;
 }
 
 /*Tela de Quiz*/
@@ -559,12 +576,12 @@ body {
 .publicacoes {
     height: 800px;
     width: 800px;
-    
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .publicacoes .container {
@@ -575,6 +592,7 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
+
 
 .publicacoes .container input {
     width: 400px;
@@ -620,7 +638,7 @@ body {
 .publicacao {
     width: 700px;
     height: 400px;
-    
+
 
     margin-bottom: 20px;
 

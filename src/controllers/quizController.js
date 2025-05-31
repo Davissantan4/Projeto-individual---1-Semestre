@@ -38,6 +38,28 @@ function listarQuestoes(req, res) {
     
 }
 
+function listarRespostas(req, res) {
+    var id = req.params.id;
+
+    quizModel.listarRespostas(id)
+        .then(
+            function(resultado){
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao buscar as respostas: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
  function responderQuestao(req, res) {
     var idUsuario = req.body.idUsuario;
     var respostas = req.body.respostas;
@@ -67,5 +89,6 @@ function listarQuestoes(req, res) {
 module.exports = {
     listar,
     listarQuestoes,
+    listarRespostas,
     responderQuestao
 }

@@ -11,6 +11,10 @@ router.get("/quiz/:id/questoes", function (req, res){
     quizController.listarQuestoes(req, res);
 });
 
+router.get("/quiz/:id/resṕstas", function (req, res) {
+    quizController.listarRespostas(req, res);
+});
+
 router.post("/quiz/:id/responder", async (req, res) => {
     quizController.responderQuestao(req, res);
 });

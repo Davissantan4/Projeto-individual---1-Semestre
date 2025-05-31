@@ -16,17 +16,11 @@ function listarQuestoes(id) {
         return database.executar(instrucao);
 }
 
-function listarRespostas(idQuestao) {
+function listarRespostas(id) {
     var instrucao = `
-        SELECT idResposta FROM  Quiz_resposta where fkQuestao = ${idQuestao};
-        `;
-        console.log("Executando a instrução: \n" + instrucao);
-        return database.executar(instrucao);
-}
-
-async function selecionarResposta(idQuestao, alternativa){
-    var instrucao = `
-        SELECT idResposta FROM Quiz_resposta where fkQuestao = ${idQuestao} AND alternativa = ${alternativa};
+        SELECT qr.idResposta, qr.fkQuestao, qr.resposta, qr.alternativa
+        INNER JOIN Quiz_questao qq on qr.fkQuestao = qq.idQuestao
+        INNER JOIN QUiz q on qq.fkQuiz = ${id}
         `;
         console.log("Executando a instrução: \n" + instrucao);
         return database.executar(instrucao);
@@ -49,6 +43,6 @@ async function selecionarResposta(idQuestao, alternativa){
 module.exports = {
     listar,
     listarQuestoes,
-    selecionarResposta,
+    listarRespostas,
     responderQuestao
 }

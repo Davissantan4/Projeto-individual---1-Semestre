@@ -326,6 +326,15 @@ body {
     align-items: center;
 }
 
+.header .ola {
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    color: white;
+}
+
 .titulo {
     font-family: 'CupheadHenriette-A-merged';
 

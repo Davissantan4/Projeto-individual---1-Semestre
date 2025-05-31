@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupweb | Dashboards</title>
+
+    <link rel="stylesheet" href="../css/dash.css">
+
+</head>
+
+<body>
+    <div class="dash overlay">
+        <div class="header">
+            <div class="container">
+                <h1 class="titulo">Cupweb</h1>
+                <div class="ola">
+                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                </div>
+                <ul class="navbar">
+                    <li>
+                        <a href="inicio.html">Início</a>
+                    </li>
+                    <li>
+                        <a href="quiz.html">Quiz</a>
+                    </li>
+                    <li>
+                        <a href="forum.html">Fórum</a>
+                    </li>
+                    <li class="agora">
+                        <a href="#">Estatísticas</a>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <a onclick="limparSessao()">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="corpo">
+            <h1>Estatísticas</h1>
+
+            <div class="dashboard">
+                <div class="indicadores">
+                    <div class="dados">
+                        <h3>Total de comentários no fórum
+                            <br>
+                            <span>20</span>
+                        </h3>
+                    </div>
+
+                    <div class="dados">
+                        <h3>Usuário com mais participações
+                            <br>
+                            <span>Davi</span>
+                        </h3>
+                    </div>
+
+                    <div class="dados">
+                        <h3>Suas participações
+                            <br>
+                            <span>15</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="dashboard-direita">
+                    <div class="grafico">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById('myChart');
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

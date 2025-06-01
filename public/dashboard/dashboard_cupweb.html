@@ -7,10 +7,11 @@
     <title>Cupweb | Dashboards</title>
 
     <link rel="stylesheet" href="../css/dash.css">
+    <script src="../js/sessao.js"></script>
 
 </head>
 
-<body>
+<body onload="validarSessao(), plotarDados()">
     <div class="dash overlay">
         <div class="header">
             <div class="container">
@@ -47,21 +48,21 @@
                     <div class="dados">
                         <h3>Total de comentários no fórum
                             <br>
-                            <span>20</span>
+                            <span id="totalComentarios"></span>
                         </h3>
                     </div>
 
                     <div class="dados">
                         <h3>Usuário com mais participações
                             <br>
-                            <span>Davi</span>
+                            <span id="usuarioComMaisParticipacoes"></span>
                         </h3>
                     </div>
 
                     <div class="dados">
                         <h3>Suas participações
                             <br>
-                            <span>15</span>
+                            <span id="suasParticipacoes"></span>
                         </h3>
                     </div>
                 </div>
@@ -85,8 +86,84 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+
     const ctx = document.getElementById('myChart');
     const ctx2 = document.getElementById('myChart2');
+
+    function plotarDados() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        var nome = sessionStorage.NOME_USUARIO;
+
+        fetch("/comentarios/total").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var mensagem = document.getElementById("totalComentarios");
+                    mensagem.innerHTML = "Nenhum resultado";
+
+                    throw "Nenhum resultado encontrado!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var total = document.getElementById("totalComentarios");
+                    total.innerHTML = resposta[0].total;
+                });
+            } else {
+                throw ('Houve um erro na API');
+            }
+        }).catch(function (resposta) {
+            console.log(resposta);           
+        });
+
+        fetch("/comentarios/participacoes").then(function (resposta) {
+            if(resposta.ok) {
+                if(resposta.status == 204) {
+                    var mensagem = document.getElementById("usuarioComMaisParticipacoes");
+                    mensagem.innerHTML = "Nenhum resultado";
+
+                    throw "Nenhum resultado encontrado!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var maisParticipacoes = document.getElementById("usuarioComMaisParticipacoes");
+                    maisParticipacoes.innerHTML = resposta[0].usuario;
+                });
+            } else {
+                throw ('Houve um erro na API');
+            }
+        }).catch(function (resposta) {
+            console.log(resposta);
+        });
+
+
+        fetch(`/comentarios/total/${idUsuario}`).then(function (resposta) {
+            if(resposta.ok) {
+                if(resposta.status == 204) {
+                    var mensagem = document.getElementById("suasParticipacoes");
+                    mensagem.innerHTML = "Nenhum resultado";
+
+                    throw "Nenhum resultado encontrado!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var seuTotal = document.getElementById("suasParticipacoes");
+                    seuTotal.innerHTML = resposta[0].total_usuario;
+                });
+            } else {
+                throw ('Houve um erro na API');
+            }
+        }).catch(function (resposta) {
+            console.log(resposta);
+        });
+    }
+
 
     new Chart(ctx, {
         type: 'bar',

@@ -19,5 +19,9 @@ router.get("/maiores", function (req, res) {
     comentarioController.maioresParticipacoes(req, res);
 });
 
+router.get("/ultimas", function (req, res) {
+    comentarioController.ultimasParticipacoes(req, res);
+});
+
 
 module.exports = router;

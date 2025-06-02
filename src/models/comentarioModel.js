@@ -34,10 +34,22 @@ function maisParticipacoes() {
 function maioresParticipacoes(limite) {
     console.log("ACESSEI O COMENTARIO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function maioresParticipacoes()");
     var instrucaoSql = `
-        SELECT u.nome, count(f.id) FROM Usuario u
+        SELECT u.nome, count(f.id) posts FROM Usuario u
         INNER JOIN Forum f on f.fkUsuario = u.id
         GROUP BY u.nome
         ORDER BY count(f.id) DESC LIMIT ${limite};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function ultimasParticipacoes() {
+    console.log("ACESSEI O COMENTARIO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function ultimasParticipacoes()");
+    var instrucaoSql = `
+        SELECT u.nome, count(f.id) posts FROM Usuario u
+        INNER JOIN Forum f on f.fkUsuario = u.id
+        GROUP BY u.nome
+        ORDER BY count(f.id) DESC LIMIT 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -47,5 +59,6 @@ module.exports = {
     total,
     totalPorUsuario,
     maisParticipacoes,
-    maioresParticipacoes
+    maioresParticipacoes,
+    ultimasParticipacoes
 }

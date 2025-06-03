@@ -18,9 +18,9 @@ function listarQuestoes(id) {
 
 function listarRespostas(id) {
     var instrucao = `
-        SELECT qr.idResposta, qr.fkQuestao, qr.resposta, qr.alternativa
+        SELECT * from Quiz_resposta qr
         INNER JOIN Quiz_questao qq on qr.fkQuestao = qq.idQuestao
-        INNER JOIN QUiz q on qq.fkQuiz = ${id}
+        WHERE qq.fkQuiz = ${id};
         `;
         console.log("Executando a instrução: \n" + instrucao);
         return database.executar(instrucao);
@@ -28,16 +28,21 @@ function listarRespostas(id) {
 
  async function responderQuestao(idUsuario, respostas) {
 
-        for(let resp of respostas){
-        var questao = await database.executar(`SELECT * FROM Quiz_questao WHERE idQuestao = ${resp.idQuestao}`);
-        var resposta = await database.executar(`SELECT * FROM Quiz_resposta WHERE idResposta = ${resp.idResposta}`);
-        var correta = questao.alternativa_correta === resp.alternativa;
+    console.log(respostas);
 
-        var instrucao = await database.executar(`INSERT INTO Usuario_resposta (data_resposta, fkUsuario, fkResposta, acertou) VALUES (current_timestamp(), ${idUsuario}, ${resposta}, ${correta})`);
-        }
+        for(let resp of respostas){
+        const questao = await database.executar(`SELECT * FROM Quiz_questao WHERE idQuestao = 5;`);
+
+        const correta = questao[0].alternativa_correta === resp.alternativa;
+
+        const instrucao = await database.executar(`INSERT INTO Usuario_resposta (data_resposta, fkUsuario, fkResposta, acertou) VALUES (current_timestamp(), ${idUsuario}, 4, ${correta ? 1 : 0});`);
+
 
         console.log("Executando a instrução: \n" + instrucao);
         return database.executar(instrucao);
+
+        }
+        
 }
 
 module.exports = {

@@ -11,7 +11,7 @@ router.get("/quiz/:id/questoes", function (req, res){
     quizController.listarQuestoes(req, res);
 });
 
-router.get("/quiz/:id/resṕstas", function (req, res) {
+router.get("/quiz/:id/respostas", function (req, res) {
     quizController.listarRespostas(req, res);
 });
 

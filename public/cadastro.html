@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body>
+<body onload="listar()">
 
   <div class="corpo overlay">
 
@@ -26,37 +26,37 @@
         </div>
       </div>
 
-        <div class="container">
-          <div class="card">
+      <div class="container">
+        <div class="card">
 
-            <h2 class="card-titulo">Cadastro</h2>
+          <h2 class="card-titulo">Cadastro</h2>
 
-            <div class="formulario">
-              <div class="campo">
-                <span>Nome:</span>
-                <input id="nome_input" type="text" placeholder="Seu nome" />
-              </div>
-              <div class="campo">
-                <span>E-mail:</span>
-                <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-              </div>
-              <div class="campo">
-                <span>Senha:</span>
-                <input id="senha_input" type="password" placeholder="******" />
-              </div>
-              <div class="campo">
-                <span>Confirmação da Senha:</span>
-                <input id="confirmacao_senha_input" type="password" placeholder="******" />
-              </div>
-              <button class="botao" onclick="cadastrar()">Cadastrar</button>
+          <div class="formulario">
+            <div class="campo">
+              <span>Nome:</span>
+              <input id="nome_input" type="text" placeholder="Seu nome" />
             </div>
-            <div id="div_aguardar" class="loading-div">
-              <img src="./assets/circle-loading.gif" id="loading-gif" />
+            <div class="campo">
+              <span>E-mail:</span>
+              <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
             </div>
-
-            <div id="div_erros_login"></div>
+            <div class="campo">
+              <span>Senha:</span>
+              <input id="senha_input" type="password" placeholder="******" />
+            </div>
+            <div class="campo">
+              <span>Confirmação da Senha:</span>
+              <input id="confirmacao_senha_input" type="password" placeholder="******" />
+            </div>
+            <button class="botao" onclick="cadastrar()">Cadastrar</button>
           </div>
+          <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif" />
+          </div>
+
+          <div id="div_erros_login"></div>
         </div>
+      </div>
     </div>
   </div>
 
@@ -65,17 +65,46 @@
 </html>
 
 <script>
-  function cadastrar() {
-    //aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
+  function limparFormulario() {
+    document.querySelectorAll("input").reset();
+  }
+
+
+  let listaUsuarios = [];
+
+  function listar() {
+    fetch("/usuarios/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((usuarios) => {
+          usuarios.forEach((usuario) => {
+            listaUsuarios.push(usuario);
+
+            console.log("listaUsuarios")
+            console.log(listaUsuarios)
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+  function cadastrar() {
+
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-    // Verificando se há algum campo em branco
+    var emailRepetido = false;
+
     if (
       nomeVar == "" ||
       emailVar == "" ||
@@ -92,15 +121,23 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Enviando o valor da nova input
+    for (let i = 0; i < listaUsuarios.length; i++) {
+      if (listaUsuarios[i].email == emailVar) {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(O email já está em uso)";
+        finalizarAguardar();
+
+        return;
+      }
+    }
+
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
+
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar

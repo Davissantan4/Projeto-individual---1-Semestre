@@ -49,7 +49,7 @@ function ultimasParticipacoes() {
         SELECT u.nome, count(f.id) posts FROM Usuario u
         INNER JOIN Forum f on f.fkUsuario = u.id
         GROUP BY u.nome
-        ORDER BY count(f.id) DESC LIMIT 1;
+        ORDER BY count(f.id) DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

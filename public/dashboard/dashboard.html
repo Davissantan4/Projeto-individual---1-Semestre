@@ -13,13 +13,10 @@
 </head>
 
 <body onload="validarSessao(), carregarDados()">
-    <div class="dash overlay">
+    <div class="dash">
         <div class="header">
             <div class="container">
-                <h1 class="titulo">Cupweb</h1>
-                <div class="ola">
-                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-                </div>
+                <h1 class="titulo"><a href="inicio.html">Cupweb</a></h1>
                 <ul class="navbar">
                     <li>
                         <a href="inicio.html">Início</a>
@@ -39,6 +36,11 @@
         </div>
 
         <div class="corpo">
+
+            <div class="ola">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
             <h1>Estatísticas</h1>
 
             <div class="dashboard">
@@ -198,7 +200,7 @@
                 label: 'Participações',
                 data: [],
                 backgroundColor: [
-                    '#c05a3a'
+                    '#e9935b'
                 ],
                 fill: false,
                 borderColor: 'rgb(255, 192, 192)',
@@ -233,7 +235,7 @@
                     x: {
                         beginAtZero: true,
                         ticks: {
-                            color: '#000',
+                            color: '#fff',
                             font: {
                                 size: 14,
                                 weigth: 'bold'
@@ -242,7 +244,7 @@
                     },
                     y: {
                         ticks: {
-                            color: '#000',
+                            color: '#d1d5db',
                             font: {
                                 size: 14,
                                 weigth: 'bold'
@@ -254,7 +256,7 @@
                     legend: {
                         position: 'bottom',
                         labels: {
-                            color: '#666',
+                            color: '#fff',
                             font: {
                                 size: 14
                             }
@@ -263,10 +265,10 @@
                     title: {
                         display: true,
                         text: 'Ranking de Participações no Fórum',
-                        color: '#333',
+                        color: '#fff',
                         font: {
                             size: 24,
-                            weight: 'bold', 
+                            weight: 'bold',
                         }
                     }
                 }

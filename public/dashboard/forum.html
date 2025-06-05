@@ -12,13 +12,10 @@
 </head>
 
 <body onload="validarSessao(), atualizarFeed()">
-    <div class="inicio overlay">
+    <div class="inicio">
         <div class="header">
             <div class="container">
-                <h1 class="titulo">Cupweb</h1>
-                 <div class="ola">
-                    <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-                </div>
+                <h1 class="titulo"><a href="inicio.html">Cupweb</a></h1>
                 <ul class="navbar">
                     <li>
                         <a href="inicio.html">Início</a>
@@ -40,12 +37,14 @@
 
         <div class="corpo-forum">
 
+            <div class="ola">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+
 
             <div class="publicacoes">
-                <div id="alerta">
-                </div>
                 <div class="container">
-                    <h1>Publicar um comentário</h1>
+                    <h1>Publicar um <span>comentário</span></h1>
                     <div class="div-form">
                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                             <label>

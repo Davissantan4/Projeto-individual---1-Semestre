@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Poppins:wght@400;600;700&display=swap');
+
 @font-face {
     font-family: 'RitaSmith';
     src: url('../assets/fonts/RitaSmith.otf');
@@ -309,6 +311,7 @@ body {
 
     overflow-x: hidden;
     overflow-y: auto;
+    
 }
 
 .header {
@@ -324,7 +327,7 @@ body {
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0 1vh 2vh rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0.5vh 2vh rgba(255, 255, 255, 0.1);
 }
 
 .header .container {
@@ -337,10 +340,21 @@ body {
 }
 
 .titulo {
-    font-family: 'CupheadHenriette-A-merged';
+    font-family: 'RitaSmith';
+}
 
-    color: white;
-    text-shadow: 4px 0 2px black;
+.titulo::before {
+    content: '';
+    display: inline-block;
+
+    width: 40px;
+    height: 45px;
+
+    background-image: url('../assets/imgs/cupweb-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    
 }
 
 .navbar {
@@ -366,7 +380,11 @@ body {
     transition: all 0.15s;
 }
 
-.header a:hover {
+.titulo a {
+    color: #f1ab7b;
+}
+
+.navbar a:hover {
     cursor: pointer;
 
     color: #d28652;
@@ -460,178 +478,185 @@ body {
     cursor: pointer;
 
     background-color: #e9935b;
-
-    width: 42%;
+    margin-top: -1vh;
 }
 
 .inicio .corpo2 {
     height: 80vh;
     width: 100vw;
 
+    font-family: "Rubik";
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     background-image: linear-gradient(to bottom, rgb(0 0 0), rgb(0 0 20), rgb(0 0 30));
 }
 
-.banner {
-    height: 500px;
+.inicio .corpo2 h2 {
+    font-size: 40px;
+}
+
+.inicio .corpo2 span {
+    color: #e9935b;
+}
+
+.inicio .corpo2 .unico {
     width: 100%;
+    height: 40%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.corpo2 .unico .cartao {
+    height: 80%;
+    width: 25%;
+
+    background-color: #1f2937;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius:15px;
+
+    transition: all 0.15s ease;
+}
+
+.corpo2 .unico .cartao:hover {
+    margin-top: -1.5vh;
+}
+
+.unico .cartao:hover h3 {
+    color: #e9935b;
+}
+
+.corpo2 .unico .cartao h3 {
+    font-size: 25px;
+    transition: 0.15s ease;
+}
+
+.corpo2 .unico .cartao p {
+    color: #d1d5db;
+    font-size: 17px;
+}
+
+.inicio .corpo3 {
+    height: 90vh;
+    width: 100%;
+
+    font-family: 'Rubik';
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: linear-gradient(to bottom, #1f2937, #111827);
+}
+
+.corpo3 #sobre-o-jogo {
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-image: linear-gradient(to bottom, rgb(10 10 10), rgb(5 5 5), rgb(0 0 0));
+}
+
+.corpo3 span {
+   color: #e9935b;
+}
+
+.corpo3 h2 {
+    font-size: 40px;
+}
+
+.div-jogo {
+    height: 80%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner {
+    height: 80%;
+    width: 45%;
 
     display: flex;
     align-items: center;
     justify-content: right;
 
-    background-image: url('../assets/imgs/banner-fundo.jpg');
+    background-image: url('../assets/imgs/banner.jpg');
     background-size: cover;
     background-position: center;
 
-    border-bottom: 2px solid black;
+    border-radius: 10px;
 }
 
-.sobre {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
-    height: 800px;
-}
-
-.texto-sobre {
+#sobre-o-jogo .texto-jogo {
+    height: 85%;
     width: 40%;
 
+    padding-left: 30px;
+
     font-size: 20px;
-
-    border-radius: 20px;
-
-    padding: 10px;
-
-    background-color: #e9935b;
 }
 
-.texto-sobre p::first-letter {
-    margin-left: 1em;
+.texto-jogo h3 {
+    font-size: 30px;
 }
 
-.texto-sobre span {
-    color: #ae3528;
+.texto-jogo p {
+    color: #d1d5db;
 }
 
-.texto-sobre h3 {
+.texto-jogo .generos {
+    height: 50%;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.generos .genero {
+    width: 40%;
+    height: 40%;
+
+    background-color: #1f2937;
+
+    border-radius: 10px;
+
     text-align: center;
 }
 
-.sobre2 {
-    height: 500px;
-    width: 100%;
+.genero p {
+    font-size: 15px;
+}
 
-    font-size: 25px;
+.genero h4 {
+    margin-bottom: 0;
+}
+
+footer {
+    height: 15vh;
+    width: 100vw;
 
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.sobre2 h3 {
-    color: #ae3528;
-}
-
-.sobre2 .ilhas h3 {
-    color: black;
-}
-
-.ilhas {
-    width: 100%;
-    height: 80%;
-
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.ilha {
-    height: 100%;
-    width: 30%;
-
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
 
-.imagem {
-    height: 200px;
-    width: 200px;
-
-    border-radius: 50%;
-
-}
-
-.ilha1 {
-    background-image: url('../assets/imgs/ilha-1.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.ilha2 {
-    background-image: url('../assets/imgs/ilha-2.webp');
-    background-size: cover;
-    background-position: center;
-}
-
-.ilha3 {
-    background-image: url('../assets/imgs/ilha-3.webp');
-    background-size: cover;
-
-}
-
-.sobre3 {
-    height: 900px;
-    width: 100%;
-
-    font-size: 25px;
-    color: #ae3528;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.chefes {
-    height: 100%;
-    width: 90%;
-
-    padding: 20px;
-
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    flex-wrap: wrap;
-
-    border-radius: 30px;
-
-    background-image: url('../assets/imgs/mapa-completo.png');
-    background-size: cover;
-    background-position: center;
-
-    margin-bottom: 20px;
-}
-
-.chefe{
-    height: 200px;
-    width: 200px;
-    margin: 10px;
-
-    border-radius: 50%;
-}
-
-.chefe img {
-    height: 100%;
-    max-width: 100%;
-
-    object-fit: cover;
-    border-radius: 50%;
+    font-family: 'Rubik';
 }
 
 /*Página do Fórum*/

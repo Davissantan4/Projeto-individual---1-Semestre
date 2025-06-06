@@ -571,7 +571,7 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    background-image: linear-gradient(to bottom, rgb(10 10 10), rgb(5 5 5), rgb(0 0 0));
+    background-image: linear-gradient(to bottom, rgb(20 20 20), rgb(10 10 10), rgb(5 5 5));
 }
 
 .corpo3 span {
@@ -642,6 +642,12 @@ body {
     border-radius: 10px;
 
     text-align: center;
+
+    transition: all 0.15s ease;
+}
+
+.generos .genero:hover {
+    margin-top: -1vh;
 }
 
 .genero p {
